@@ -7,14 +7,13 @@ class Siswa_model extends CI_Model
         //script upload gambar ke Local + simpan nama gambar ke database
         $config['upload_path']          = 'assets/gambar';
         $config['allowed_types']        = 'gif|jpg|png|jpeg';
-        $config['file_name']            = "pict";
         $config['max_size']             = '2048';
 
-        $this->load->library('upload', $config); //load library upload dan initialisasi $config
+        $this->load->library('upload', $config); //load library upload dan inisialisasi $config
 
         if ($this->upload->do_upload("gambar")) {
             $imageData = $this->upload->data();
-            $fileName = $imageData['file_name']; //ambil nama gambar lalu ditampung ke variabel
+            $fileName = $imageData['file_name']; //ambil nama gambar lalu ditampung ke variabel $fileName
         } else {
             echo $this->upload->display_errors();
         }
@@ -26,10 +25,8 @@ class Siswa_model extends CI_Model
             'nama_ayah' => htmlspecialchars($this->input->post('txtnama_ayah', true)),
             'nama_ibu' => htmlspecialchars($this->input->post('txtnama_ibu', true)),
             'alamat' => htmlspecialchars($this->input->post('txtalamat', true)),
+            'gambar' => $fileName
         ]; // atau script diatas bisa ditulis seperti ini : $data = array(......);
-
-        //script upload nama teks gambar ke database (dipisah karena variabel harus pake titik koma)
-        $data['gambar'] = $fileName;
 
         $this->db->insert('siswa', $data);
     }
@@ -48,7 +45,7 @@ class Siswa_model extends CI_Model
         return $row_query->row_array();
     }
 
-    public function update($sudo_row)
+    public function update($id)
     {
         //script upload gambar ke Local + simpan nama gambar ke database
         $upload_gambar = $_FILES['gambar'];
@@ -57,13 +54,14 @@ class Siswa_model extends CI_Model
             $config['allowed_types']        = 'gif|jpg|png|jpeg';
             $config['max_size']             = '2048';
 
-                $this->load->library('upload', $config);
+                $this->load->library('upload', $config); //load library upload dan inisialisasi $config
 
                 if ($this->upload->do_upload('gambar')) {
-                    $new_image = $this->upload->data('file_name');
-                    $this->db->set('gambar', $new_image);
+                    $fileName = $this->upload->data('file_name');
+                    unlink('assets/gambar/'.$this->input->post('gambar_lama', true));
+                    
                 } else {
-                    $this->upload->display_errors();
+                    $fileName = $this->input->post('gambar_lama', true);
                 }
             }
 
@@ -75,15 +73,22 @@ class Siswa_model extends CI_Model
             'nama_ayah' => htmlspecialchars($this->input->post('txtnama_ayah', true)),
             'nama_ibu' => htmlspecialchars($this->input->post('txtnama_ibu', true)),
             'alamat' => htmlspecialchars($this->input->post('txtalamat', true)),
+            'gambar' => $fileName
         ];
 
-        $this->db->where('id', $sudo_row);
+        $this->db->where('id', $id);
         return $this->db->update('siswa', $data);
+
     }
 
-    public function delete($id)
-    {
+    public function delete($id){
         // CRUD => Delete (untuk menghapus data) melalui parameter
-        $this->db->delete('siswa', ['id' => $id]);
+        // dan sekaligus menghapus gambar dilokal
+        $_id = $this->db->get_where('siswa',['id' => $id])->row();
+        $delete = $this->db->delete('siswa',['id'=>$id]);
+        if($delete){
+            unlink("assets/gambar/".$_id->gambar);
+        }
     }
+
 }

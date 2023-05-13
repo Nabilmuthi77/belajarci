@@ -6,7 +6,7 @@ class Home extends CI_Controller
 
 	public function __construct()
 	{
-		// load model otomatis yang hanya untuk di controller Home ini 
+		// load model Siswa_model dengan otomatis yang hanya untuk di controller Home ini saja 
 		parent::__construct();
 		$this->load->model('Siswa_model');
 	}
@@ -14,8 +14,8 @@ class Home extends CI_Controller
 	public function index()
 	{
 		// CRUD => Read (untuk menampilkan data)
-		$query['tampilkan_data'] = $this->Siswa_model->read();
-		$this->load->view('index', $query);
+		$data['tampilkan_data'] = $this->Siswa_model->read();
+		$this->load->view('index', $data);
 	}
 
 	public function simpan_data()
@@ -33,16 +33,17 @@ class Home extends CI_Controller
 
 	public function panggil_siswa($id)
 	{
-		// mengambil hanya 1 baris id (melalui parameter) untuk ditampilkan menggunakan CRUD => get_where dan
+		// mengambil hanya 1 baris id (melalui parameter) untuk
+		// ditampilkan menggunakan CRUD => get_where dan
 		// load view form edit siswa nya 
-		$row_query['tampilkan_data'] = $this->Siswa_model->read_by_id($id);
-		$this->load->view('form_edit_siswa', $row_query);
+		$data['tampilkan_data'] = $this->Siswa_model->read_by_id($id);
+		$this->load->view('form_edit_siswa', $data);
 	}
 
-	public function update_data($sudo_row)
+	public function update_data($id)
 	{
 		// CRUD => Update (untuk mengupdate data) melalui parameter
-		$this->Siswa_model->update($sudo_row);
+		$this->Siswa_model->update($id);
 		redirect(base_url());
 	}
 
