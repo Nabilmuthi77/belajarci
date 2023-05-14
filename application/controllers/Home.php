@@ -15,7 +15,9 @@ class Home extends CI_Controller
 	{
 		// CRUD => Read (untuk menampilkan data)
 		$data['tampilkan_data'] = $this->Siswa_model->read();
+		$this->load->view('header');
 		$this->load->view('index', $data);
+		$this->load->view('footer');
 	}
 
 	public function simpan_data()
