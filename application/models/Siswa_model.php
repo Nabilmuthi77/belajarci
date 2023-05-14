@@ -69,7 +69,7 @@ class Siswa_model extends CI_Model
                 $fileName = $this->upload->data('file_name');
                 unlink('assets/gambar/' . $this->input->post('gambar_lama', true));
             } else {
-                $fileName = $this->input->post('gambar_lama', true);
+                $fileName = htmlspecialchars($this->input->post('gambar_lama', true));
             }
         }
 

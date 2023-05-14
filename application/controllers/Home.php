@@ -22,7 +22,16 @@ class Home extends CI_Controller
 
 	public function simpan_data()
 	{
-		// CRUD => Create (untuk menyimpan data)
+		$this->form_validation->set_rules('txtnama', 'Name', 'required');
+        $this->form_validation->set_rules('rdjeniskelamin', 'Option', 'required');
+        $this->form_validation->set_rules('txtnama_ayah', 'Daddy Name', 'required');
+        $this->form_validation->set_rules('txtnama_ibu', 'Mommy Name', 'required');
+        $this->form_validation->set_rules('txtalamat', 'Address', 'required');
+
+        if ($this->form_validation->run() == false) {
+			$this->load->view('form_tambah_siswa');
+        } else {
+        // CRUD => Create (untuk menyimpan data)
 		$this->Siswa_model->create();
 		//flashdata massage
 		$this->session->set_flashdata(
@@ -32,7 +41,8 @@ class Home extends CI_Controller
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		  </div>'
 		);
-		redirect(base_url());
+		redirect(base_url());   
+        }
 	}
 
 	public function tambah_siswa()
@@ -52,7 +62,16 @@ class Home extends CI_Controller
 
 	public function update_data($id)
 	{
-		// CRUD => Update (untuk mengupdate data) melalui parameter
+		$this->form_validation->set_rules('txtnama', 'Name', 'required');
+        $this->form_validation->set_rules('rdjeniskelamin', 'Option', 'required');
+        $this->form_validation->set_rules('txtnama_ayah', 'Daddy Name', 'required');
+        $this->form_validation->set_rules('txtnama_ibu', 'Mommy Name', 'required');
+        $this->form_validation->set_rules('txtalamat', 'Address', 'required');
+
+        if ($this->form_validation->run() == false) {
+			$this->panggil_siswa($id);
+        } else {
+        // CRUD => Update (untuk mengupdate data) melalui parameter
 		$this->Siswa_model->update($id);
 		//flash data massage
 		$this->session->set_flashdata(
@@ -63,6 +82,7 @@ class Home extends CI_Controller
 		  </div>'
 		);
 		redirect(base_url());
+        }
 	}
 
 	public function hapus_siswa($id)
@@ -78,4 +98,6 @@ class Home extends CI_Controller
 		);
 		redirect(base_url());
 	}
+
+	
 }

@@ -23,7 +23,9 @@
             <table border="2" class="table table-dark table-striped">
                 <tr>
                     <td><label for="nama">Nama Siswa : </label> </td>
-                    <td><input type="text" name="txtnama" id="nama" value="<?= $tampilkan_data['nama']; ?>" class="form-control"></td>
+                    <td><input type="text" name="txtnama" id="nama" value="<?= $tampilkan_data['nama']; ?>" class="form-control">
+                    <?= form_error('txtnama', '<small class="text-white pl-3">', '</small>'); ?>
+                    </td>
                 </tr>
                 <tr>
                     <td><label for="jk">Jenis Kelamin : </label></td>
@@ -35,15 +37,21 @@
                         <input type="radio" name="rdjeniskelamin" <?php if ($tampilkan_data['jk'] == "Perempuan") {
                                                                         echo "checked";
                                                                     } ?> value="Perempuan" class="form-check-input"> Perempuan
+                        <?= form_error('rdjeniskelamin', '<small class="text-white pl-3">', '</small>'); ?>
+                        
                     </td>
                 </tr>
                 <tr>
                     <td><label for="NA">Nama Ayah : </label></td>
-                    <td><input type="text" name="txtnama_ayah" id="NA" value="<?= $tampilkan_data['nama_ayah']; ?>" class="form-control"></td>
+                    <td><input type="text" name="txtnama_ayah" id="NA" value="<?= $tampilkan_data['nama_ayah']; ?>" class="form-control">
+                    <?= form_error('txtnama_ayah', '<small class="text-white pl-3">', '</small>'); ?>
+                    </td>
                 </tr>
                 <tr>
                     <td><label for="NI"> Nama Ibu : </label></td>
-                    <td> <input type="text" name="txtnama_ibu" id="NI" value="<?= $tampilkan_data['nama_ibu']; ?>" class="form-control"></td>
+                    <td> <input type="text" name="txtnama_ibu" id="NI" value="<?= $tampilkan_data['nama_ibu']; ?>" class="form-control">
+                    <?= form_error('txtnama_ibu', '<small class="text-white pl-3">', '</small>'); ?>
+                    </td>
                 </tr>
 
                 <input type="hidden" value="<?= $tampilkan_data['gambar']; ?>" name="gambar_lama">
@@ -57,7 +65,9 @@
                 </tr>
                 <tr>
                     <td><label for="alamat">Alamat : </label></td>
-                    <td> <textarea name="txtalamat" row="5" col="20" id="alamat" class="form-control"><?= $tampilkan_data['alamat']; ?></textarea></td>
+                    <td> <textarea name="txtalamat" row="5" col="20" id="alamat" class="form-control"><?= $tampilkan_data['alamat']; ?></textarea>
+                    <?= form_error('txtalamat', '<small class="text-white pl-3">', '</small>'); ?>
+                    </td>
                 </tr>
                 <tr>
                     <td> <button type="submit" class="btn btn-success">Update</button></td>

@@ -23,22 +23,29 @@
             <table border="2" class="table table-dark table-striped">
                 <tr>
                     <th><label for="nama">Nama Siswa : </label> </th>
-                    <td><input type="text" name="txtnama" id="nama" class="form-control"></td>
+                    <td><input type="text" name="txtnama" id="nama" class="form-control">
+                        <?= form_error('txtnama', '<small class="text-white pl-3">', '</small>'); ?>
+                    </td>
                 </tr>
                 <tr>
                     <th><label for="jk">Jenis Kelamin : </label></th>
                     <td>
                         <input type="radio" name="rdjeniskelamin" value="Laki-Laki" id="jk" class="form-check-input"> Laki-Laki
-                        <input type="radio" name="rdjeniskelamin" value="Perempuan" class="form-check-input"> Perempuan
+                        <input type="radio" name="rdjeniskelamin" value="Perempuan" class="form-check-input"> Perempuan <br>
+                        <?= form_error('rdjeniskelamin', '<small class="text-white pl-3">', '</small>'); ?>
                     </td>
                 </tr>
                 <tr>
                     <th><label for="NA">Nama Ayah : </label></th>
-                    <td><input type="text" name="txtnama_ayah" id="NA" class="form-control"></td>
+                    <td><input type="text" name="txtnama_ayah" id="NA" class="form-control">
+                    <?= form_error('txtnama_ayah', '<small class="text-white pl-3">', '</small>'); ?>
+                    </td>
                 </tr>
                 <tr>
                     <th><label for="NI"> Nama Ibu : </label></th>
-                    <td> <input type="text" name="txtnama_ibu" id="NI" class="form-control"></td>
+                    <td> <input type="text" name="txtnama_ibu" id="NI" class="form-control">
+                    <?= form_error('txtnama_ibu', '<small class="text-white pl-3">', '</small>'); ?>
+                    </td>
                 </tr>
                 <tr>
                     <th><label for="pict"> Gambar : </label></th>
@@ -47,7 +54,9 @@
                 </tr>
                 <tr>
                     <th><label for="alamat">Alamat : </label></th>
-                    <td> <textarea name="txtalamat" row="5" col="20" id="alamat" class="form-control"></textarea></td>
+                    <td> <textarea name="txtalamat" row="5" col="20" id="alamat" class="form-control"></textarea>
+                    <?= form_error('txtalamat', '<small class="text-white pl-3">', '</small>'); ?>
+                    </td>
                 </tr>
                 <tr>
                     <td> <button type="submit" class="btn btn-success">Simpan</button></td>
