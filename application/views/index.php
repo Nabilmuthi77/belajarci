@@ -19,6 +19,7 @@
     <section class="container">
 
         <h1 class="mt-2">Data Siswa</h1>
+        <?= $this->session->flashdata('message'); ?>
         <a href="<?= base_url('Home/tambah_siswa'); ?>" class="badge bg-primary mb-2">Tambah Siswa</a>
 
         <table border="2" class="table table-dark table-striped">

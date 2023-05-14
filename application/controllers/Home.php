@@ -22,6 +22,14 @@ class Home extends CI_Controller
 	{
 		// CRUD => Create (untuk menyimpan data)
 		$this->Siswa_model->create();
+		//flashdata massage
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>Data Siswa Berhasil Ditambahkan !</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		  </div>'
+		);
 		redirect(base_url());
 	}
 
@@ -44,6 +52,14 @@ class Home extends CI_Controller
 	{
 		// CRUD => Update (untuk mengupdate data) melalui parameter
 		$this->Siswa_model->update($id);
+		//flash data massage
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-info alert-dismissible fade show" role="alert">
+			<strong>Data Siswa Berhasil Diupdate !</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		  </div>'
+		);
 		redirect(base_url());
 	}
 
@@ -51,6 +67,13 @@ class Home extends CI_Controller
 	{
 		// CRUD => Delete (untuk menghapus data) melalui parameter
 		$this->Siswa_model->delete($id);
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			<strong>Data Siswa Berhasil Dihapus !</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		  </div>'
+		);
 		redirect(base_url());
 	}
 }
