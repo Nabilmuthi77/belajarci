@@ -5,7 +5,7 @@
     <a href="<?= base_url('Home/tambah_siswa'); ?>" class="badge bg-primary mb-2">Tambah Siswa</a>
 
     <div class="table">
-        <table border="2" class="table table-dark table-striped mb-5">
+        <table border="2" class="table table-dark table-striped mb-5" style="overflow: auto;">
 
             <tr>
                 <th>No</th>
