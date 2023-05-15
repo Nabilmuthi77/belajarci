@@ -14,16 +14,16 @@
     </style>
 </head>
 
-<body>
+<body class="bg-dark" data-bs-theme="dark">
 
     <section class="container">
 
-        <h1 class="mt-2">Tambah Data Siswa</h1>
+        <h1 class="my-5">Tambah Data Siswa</h1>
         <form action="<?= base_url('Home/simpan_data'); ?>" method="post" enctype="multipart/form-data">
             <table border="2" class="table table-dark table-striped">
                 <tr>
                     <th><label for="nama">Nama Siswa : </label> </th>
-                    <td><input type="text" name="txtnama" id="nama" class="form-control">
+                    <td><input type="text" name="txtnama" id="nama" class="form-control text-black">
                         <?= form_error('txtnama', '<small class="text-white pl-3">', '</small>'); ?>
                     </td>
                 </tr>
@@ -37,24 +37,24 @@
                 </tr>
                 <tr>
                     <th><label for="NA">Nama Ayah : </label></th>
-                    <td><input type="text" name="txtnama_ayah" id="NA" class="form-control">
+                    <td><input type="text" name="txtnama_ayah" id="NA" class="form-control text-black">
                     <?= form_error('txtnama_ayah', '<small class="text-white pl-3">', '</small>'); ?>
                     </td>
                 </tr>
                 <tr>
                     <th><label for="NI"> Nama Ibu : </label></th>
-                    <td> <input type="text" name="txtnama_ibu" id="NI" class="form-control">
+                    <td> <input type="text" name="txtnama_ibu" id="NI" class="form-control text-black">
                     <?= form_error('txtnama_ibu', '<small class="text-white pl-3">', '</small>'); ?>
                     </td>
                 </tr>
                 <tr>
                     <th><label for="pict"> Gambar : </label></th>
-                    <td> <input type="file" class="form-control mt-2" id="pict" name="gambar">
+                    <td> <input type="file" class="form-control mt-2 text-black" id="pict" name="gambar">
                     </td>
                 </tr>
                 <tr>
                     <th><label for="alamat">Alamat : </label></th>
-                    <td> <textarea name="txtalamat" row="5" col="20" id="alamat" class="form-control"></textarea>
+                    <td> <textarea name="txtalamat" row="5" col="20" id="alamat" class="form-control text-black"></textarea>
                     <?= form_error('txtalamat', '<small class="text-white pl-3">', '</small>'); ?>
                     </td>
                 </tr>

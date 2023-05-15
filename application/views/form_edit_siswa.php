@@ -14,16 +14,16 @@
     </style>
 </head>
 
-<body>
+<body class="bg-dark" data-bs-theme="dark">
 
     <section class="container">
 
-        <h1 class="mt-2">Edit Data Siswa</h1>
+        <h1 class="my-5">Edit Data Siswa</h1>
         <form action="<?= base_url('Home/update_data/' . $tampilkan_data['id']); ?>" method="post" enctype="multipart/form-data">
             <table border="2" class="table table-dark table-striped">
                 <tr>
                     <td><label for="nama">Nama Siswa : </label> </td>
-                    <td><input type="text" name="txtnama" id="nama" value="<?= $tampilkan_data['nama']; ?>" class="form-control">
+                    <td><input type="text" name="txtnama" id="nama" value="<?= $tampilkan_data['nama']; ?>" class="form-control text-black">
                     <?= form_error('txtnama', '<small class="text-white pl-3">', '</small>'); ?>
                     </td>
                 </tr>
@@ -43,13 +43,13 @@
                 </tr>
                 <tr>
                     <td><label for="NA">Nama Ayah : </label></td>
-                    <td><input type="text" name="txtnama_ayah" id="NA" value="<?= $tampilkan_data['nama_ayah']; ?>" class="form-control">
+                    <td><input type="text" name="txtnama_ayah" id="NA" value="<?= $tampilkan_data['nama_ayah']; ?>" class="form-control text-black">
                     <?= form_error('txtnama_ayah', '<small class="text-white pl-3">', '</small>'); ?>
                     </td>
                 </tr>
                 <tr>
                     <td><label for="NI"> Nama Ibu : </label></td>
-                    <td> <input type="text" name="txtnama_ibu" id="NI" value="<?= $tampilkan_data['nama_ibu']; ?>" class="form-control">
+                    <td> <input type="text" name="txtnama_ibu" id="NI" value="<?= $tampilkan_data['nama_ibu']; ?>" class="form-control text-black">
                     <?= form_error('txtnama_ibu', '<small class="text-white pl-3">', '</small>'); ?>
                     </td>
                 </tr>
@@ -60,12 +60,12 @@
                     <td><label for="pict"> Gambar : </label></td>
                     <td><img src="<?= base_url('assets/gambar/') . $tampilkan_data['gambar']; ?>" class="img-thumbnail" width='80' height='80'>
                         <?= $tampilkan_data['gambar']; ?> <br>
-                        <input type="file" name="gambar" id="pict" class="form-control mt-2">
+                        <input type="file" name="gambar" id="pict" class="form-control mt-2 text-black">
                     </td>
                 </tr>
                 <tr>
                     <td><label for="alamat">Alamat : </label></td>
-                    <td> <textarea name="txtalamat" row="5" col="20" id="alamat" class="form-control"><?= $tampilkan_data['alamat']; ?></textarea>
+                    <td> <textarea name="txtalamat" row="5" col="20" id="alamat" class="form-control text-black"><?= $tampilkan_data['alamat']; ?></textarea>
                     <?= form_error('txtalamat', '<small class="text-white pl-3">', '</small>'); ?>
                     </td>
                 </tr>

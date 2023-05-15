@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 14, 2023 at 08:15 PM
+-- Generation Time: May 15, 2023 at 03:22 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -43,9 +43,10 @@ CREATE TABLE `siswa` (
 
 INSERT INTO `siswa` (`id`, `nama`, `jk`, `nama_ayah`, `nama_ibu`, `gambar`, `alamat`) VALUES
 (51, 'Nabil Muthi', 'Laki-Laki', 'BS', 'SR', 'nabil.jpg', 'Kampung bamburaki II'),
-(52, 'Jaja Royana', 'Laki-Laki', 'AD', 'RK', 'hj1.jpeg', 'Pabuaran Engkolsari'),
-(53, 'Andre Rahardjo', 'Laki-Laki', 'BK', 'LK', 'out.png', 'Purwakarta Pacingsari'),
-(56, 'Ilham Ramadhan', 'Laki-Laki', 'PK', 'CH', 'hj2.jpeg', 'Perum Personasari');
+(52, 'Jaja Royana', 'Laki-Laki', 'AD', 'RK', 'hj.jpeg', 'Pabuaran Engkolsari'),
+(53, 'Andre Rahardja', 'Laki-Laki', 'BK', 'LK', 'out.png', 'Purwakarta Pacingsari'),
+(56, 'Ilham Ramadhan', 'Laki-Laki', 'PK', 'CH', 'hj2.jpeg', 'Perum Personasari'),
+(70, 'Sesilia Alien', 'Perempuan', 'HU', 'OP', 'out2.png', 'Perum Tirtasari');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +66,7 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

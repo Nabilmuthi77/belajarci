@@ -1,11 +1,11 @@
-<section class="container">
+<section class="container mb-5 pb-5">
 
     <h1 class="mt-2 text-white">Data Siswa</h1>
     <?= $this->session->flashdata('message'); ?>
     <a href="<?= base_url('Home/tambah_siswa'); ?>" class="badge bg-primary mb-2">Tambah Siswa</a>
 
-    <div class="table-responsive">
-        <table border="2" class="table table-dark table-striped">
+    <div class="table">
+        <table border="2" class="table table-dark table-striped mb-5">
 
             <tr>
                 <th>No</th>
